@@ -32,7 +32,7 @@ class Takeaway
   def customer_order(contents, cheque)
    total_price = contents.map {|i|i[:price] * i[:quantity]}.inject(0){|result, element|result + element}
    raise "Where were you during Maths class?!" if total_price != cheque
-   send_simple_message 
+   send_simple_message
   end
 
 end 
