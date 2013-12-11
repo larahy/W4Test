@@ -1,7 +1,11 @@
 require 'rest_client'
 
+# Well done for writing a short class
+# but pay attention to indentation
 class Takeaway
 
+  # yes, it should be a constant
+  # I guess 4 names out of 7 :)
   MENU = [
     {:name => "Caviar Bardem", :price => 50},
     {:name => "Skate Moss", :price => 20},
@@ -12,11 +16,13 @@ class Takeaway
     {:name => "Prawn French", :price => 2}
    ]
 
-  def initialize() 
-  end 
+   # why have an empty method?
 
   def print_menu
     MENU.each do |i| 
+      # in general, avoid printing things.
+      # Return them instead and let the code that called it
+      # to return it
       puts "#{i[:name]} costs #{i[:price]}"
     end
   end
@@ -31,6 +37,7 @@ class Takeaway
   
 
   def customer_order(contents, cheque)
+    # this line could have been extracted into an external method
    total_price = contents.map {|i|i[:price] * i[:quantity]}.inject(0){|result, element|result + element}
    raise "Where were you during Maths class?!" if total_price != cheque
    send_simple_message

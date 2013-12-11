@@ -1,7 +1,10 @@
 class Array
 
   def implant(startpoint, &method) # takes an argument and a block
+    # what if startpoint is not given?
     result = startpoint #startpoint is first argument to the block
+    # the overall structure makes sense
+    # but the first argument must be optional    
     self.each do |element| #iterate over every element in array
       result = method.call(result, element) # block executed once for every element in the array and result updated each time
       end
