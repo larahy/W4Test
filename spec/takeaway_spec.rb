@@ -20,15 +20,22 @@ describe Takeaway do
 
   context 'Menu' do 
 
-    it 'should have a menu that can be printed on request' do
+    # don't test the presence for the menu in the first place
+    it 'should have a menu that can be printed on request' do      
+      # if you're testing for something to not to raise an error
+      # it should be passed as a block or a lambda:
+      # expect { famous_fish.print_menu }.not_to raise_error
       expect(famous_fish.print_menu).not_to raise_error
     end
 
+    # nice three tests
     it 'should raise error if customers has paid incorrectly' do
       expect(lambda { famous_fish.customer_order(contents, cheque1) }).to raise_error(RuntimeError)
     end
 
     it 'should not raise error message if payment is correct' do
+      # you forgot to stub send_simple_message
+      # so this test sends it every time I run a test suite
       expect(famous_fish.customer_order(contents, cheque2)).not_to raise_error
     end
 
