@@ -8,7 +8,8 @@ class Takeaway
     {:name => "David Clameron", :price => 10},
     {:name => "Salmon Rushdie", :price => 25},
     {:name => "Tuna Turner", :price => 60},
-    {:name => "Doryan Grey", :price => 5}
+    {:name => "Doryan Grey", :price => 5},
+    {:name => "Prawn French", :price => 2}
    ]
 
   def initialize() 
