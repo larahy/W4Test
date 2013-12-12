@@ -16,9 +16,10 @@ class Takeaway
   end 
 
   def print_menu
-    MENU.each do |i| 
-      puts "#{i[:name]} costs #{i[:price]}"
+    visual = MENU.each do |i| 
+      "#{i[:name]} costs #{i[:price]}"
     end
+    visual
   end
 
   def send_simple_message

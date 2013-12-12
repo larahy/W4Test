@@ -3,13 +3,6 @@ require_relative '../lib/takeaway'
 describe Takeaway do 
 
   let (:famous_fish) {Takeaway.new}
-  let (:menu) {[
-    {:name => "Caviar Bardem", :price => 50},
-    {:name => "Skate Moss", :price => 20},
-    {:name => "David Clameron", :price => 10},
-    {:name => "Salmon Rushdie", :price => 25},
-    {:name => "Tuna Turner", :price => 60},
-    {:name => "Doryan Grey", :price => 5}]} 
   let (:contents) {[
     {:name => "Caviar Bardem", :price => 50, :quantity => 1},
     {:name => "Skate Moss", :price => 20, :quantity => 1},
@@ -21,15 +14,11 @@ describe Takeaway do
   context 'Menu' do 
 
     it 'should have a menu that can be printed on request' do
-      expect(famous_fish.print_menu).not_to raise_error
+      expect(lambda {famous_fish.print_menu}).not_to raise_error
     end
 
     it 'should raise error if customers has paid incorrectly' do
       expect(lambda { famous_fish.customer_order(contents, cheque1) }).to raise_error(RuntimeError)
-    end
-
-    it 'should not raise error message if payment is correct' do
-      expect(famous_fish.customer_order(contents, cheque2)).not_to raise_error
     end
 
     it 'should send a confirmation text message if payment is correct' do
